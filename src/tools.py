@@ -27,12 +27,12 @@ def searchbytitle(df1, df1_title_col, df2, df2_title_col, titles: list):
 def unpack_genre(genrelist): 
     genre_dict = {} #initialize output
     list_of_genre = [] #initilize unpacked list
-    for genres in genrelist: #unpack elements
-        for genre in genres.split(","): #split elements by comma
-            list_of_genre.append(genre.lower()) #append all strings
-    checking_genre = set(list_of_genre) #checking list is the set of above
-    for check in checking_genre: #check how many times check
-        genre_dict[check] = list_of_genre.count(check) #appears on the list and put it as key:value pair
-    genre_dict = {k: v for k, v in sorted(genre_dict.items(), key=lambda item: item[1])} #sort
+    for genres in genrelist: #unpack elements: genres is "genre1,genre2,genre3,..."
+        for genre in genres.split(","): #split elements by comma: genre is "grenre1" while split method provide ["genre1", "gnenre2", "genre3"]
+            list_of_genre.append(genre.lower()) #append each genre as an element to list_of_genres
+    checking_genre = set(list_of_genre) #checking list is a unique set of list_of_genre
+    for check in checking_genre: #for a unique gerne in unique set of genres
+        genre_dict[check] = list_of_genre.count(check) #get how many times the genre appear on the list_of_genres
+    genre_dict = {k: v for k, v in sorted(genre_dict.items(), key=lambda item: item[1])} #sort and output key value pair of genre:# of appearance
     
-    return genre_dict #return
+    return genre_dict #output dictionary of genre counts
