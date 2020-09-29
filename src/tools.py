@@ -36,3 +36,17 @@ def unpack_genre(genrelist):
     genre_dict = {k: v for k, v in sorted(genre_dict.items(), key=lambda item: item[1])} #sort and output key value pair of genre:# of appearance
     
     return genre_dict #output dictionary of genre counts
+
+#Count how many common items are in each list
+def common_in_list(list1: list, list2: list):
+    counter1 = counter2 = 0
+    for item in list1:
+        if item in list2:
+            counter1 += 1
+    return counter1
+
+#this function updates the strings value dollar sign to numbers.
+#Expected input: $425,112,413
+#Output: 425112413 
+def dollar_str_to_num(num_str: str):
+    return int("".join(digit for digit in num_str if digit.isnumeric()))
