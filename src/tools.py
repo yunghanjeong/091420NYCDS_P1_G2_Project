@@ -2,26 +2,10 @@
 import pandas as pd
 
 #This function search each dataframe by provided column name and looks for a common value provided in a list
+#If the associated year matches then the dataframes are joined and concatednated
 def searchbytitle(df1, df1_title_col, df2, df2_title_col, titles: list):
-#get a combined(merge) dataframe by a list of titles
-#technically you can combine any column if they have the same information   
- 
-    #initialize return dataframe
-    combine_df = pd.DataFrame()
-    #for loop to 
-    for i, title in enumerate(titles):
-        # grab subset by the columns and value specified
-        df1_subset = df1[df1[df1_title_col] == title]
-        df2_subset = df2[df2[df2_title_col] == title]
-        
-        #reset the index for join
-        df1_subset.set_index(df1_title_col, inplace = True)
-        df2_subset.set_index(df2_title_col, inplace = True)
-        
-        #set combine_df for return
-        combine_df = pd.concat([combine_df, df1_subset.join(df2_subset)])
-        
-    return combine_df
+#this is redudant. Just pass the list with df[df[column].isin(list)]
+    pass
 
 #EXPECTING ["genre1,genre2,genre3", "genre2,genre4", "genre2,genre5"...]
 def unpack_genre(genrelist): 
@@ -44,6 +28,10 @@ def common_in_list(list1: list, list2: list):
         if item in list2:
             counter1 += 1
     return counter1
+
+#return common elements between 2 lists. uses 1st argument as the iterator and 2nd argument as the comparator 
+def common_titles(title_list1: list, title_list2: list):
+    return [title for title in title_list1 if title in title_list2]
 
 #this function updates the strings value dollar sign to numbers.
 #Expected input: $425,112,413
