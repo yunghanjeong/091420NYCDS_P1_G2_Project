@@ -64,6 +64,8 @@ May, June, July, and December are generally conisidered as the best month to rel
 ## Top Performing Animation or Sci-Fi films for reference
 Despicable Me 2, Ice Age: Continental Drift, The Hunger Games, Jurassic World
 
+## Presentation
+[Presentation Slides](https://github.com/yunghanjeong/091420NYCDS_P1_G2_Project/blob/master/Profitable%20Movies%20Presentation.pdf)
 
 ## Contributors
 [Cierra Andaur](https://github.com/cierra4prez)
